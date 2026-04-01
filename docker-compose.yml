@@ -13,7 +13,15 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
       - ./seeder.sql:/docker-entrypoint-initdb.d/02-seeder.sql:ro
 
-  lang:
+  rust:
+    image: rust:1.85
+    container_name: legacy_rust
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: rustc --edition 2021 --crate-type lib legacy.rs
+    depends_on:
+      - db
 
 volumes:
   postgres_data:
