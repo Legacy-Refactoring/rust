@@ -1,0 +1,10 @@
+[package]
+name = "legacy-payment-system-rust"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+postgres = "0.19"
+md5 = "0.7"
+chrono = "0.4"
+serde_json = "1.0"
